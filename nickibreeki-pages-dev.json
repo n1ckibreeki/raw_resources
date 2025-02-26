@@ -1,12 +1,6 @@
-/*
-
-  THIS THING IS FOR "https://nickibreeki.pages.dev/"
-  SO INSTEAD OF RETRIEVE FROM THE LOCAL, RETRIEVE BY PULL DATA FROM THIS GIT REPO FILE :3
-
-  i'm so mawmawmawmawmawmawmawmawmaw
-*/
-
 {
+  // instead of retrieve locally from the directory, i decided to make it retrieve from this file instead...
+  // b'cuz i'm mawmawmawmawmawmawmawmaw :333333
   "projects": [
     {
       "title": "Fisch User NPC Dialogue",
