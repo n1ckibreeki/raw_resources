@@ -1,0 +1,19 @@
+/*
+
+  THIS THING IS FOR "https://nickibreeki.pages.dev/"
+  SO INSTEAD OF RETRIEVE FROM THE LOCAL, RETRIEVE BY PULL DATA FROM THIS GIT REPO FILE :3
+
+  i'm so mawmawmawmawmawmawmawmawmaw
+*/
+
+{
+  "projects": [
+    {
+      "title": "Fisch User NPC Dialogue",
+      "description": "This assets meant to mimic the Fisch Game NPC Dialogue System on ROBLOX",
+      "tags": ["Asset", "Template", "LuaU"],
+      "link": "https://github.com/n1ckibreeki/RBX-Fisch-User-Dialogue-System",
+      "thumbnail": "assetsRes/Fisch.png"
+    }
+  ]
+}
