@@ -1,11 +1,28 @@
 {
-  "projects": [
-    {
-      "title": "Fisch User NPC Dialogue",
-      "description": "This assets meant to mimic the Fisch Game NPC Dialogue System on ROBLOX",
-      "tags": ["Asset", "Template", "LuaU"],
-      "link": "https://github.com/n1ckibreeki/RBX-Fisch-User-Dialogue-System",
-      "thumbnail": "https://cdn.discordapp.com/attachments/950343648975941664/1344318690732277830/Fisch.png?ex=67c079d8&is=67bf2858&hm=bf24db572ea0f0e272f5b59c38ef1059043412b445912c8bb4e935d1c4f417fa&"
-    }
-  ]
-}
+    "projects": [
+      {
+        "title": "Fisch User NPC Dialogue",
+        "description": "This assets meant to mimic the Fisch Game NPC Dialogue System on ROBLOX",
+        "tags": ["Asset", "Template", "LuaU"],
+        "directTo": "Github",
+        "link": "https://github.com/n1ckibreeki/RBX-Fisch-User-Dialogue-System",
+        "thumbnail": "https://cdn.discordapp.com/attachments/945047920485474367/1345640715887317033/Fisch.png?ex=67c54913&is=67c3f793&hm=7aba60a64cd27eb890870359f91c3ea5864b0c6d7c38808ed8437af3aeebec18&"
+      },
+      {
+        "title": "[DEPRECATED] nickibreeki's FPS Template Overhauled",
+        "description": "Modification version includes various features that ROBLOX didn’t originally feature and addresses the mess left in the original version, making it easier to understand and create a game out of the template.",
+        "tags": ["Asset", "Template", "LuaU", "Deprecated"],
+        "directTo": "DevForum",
+        "link": "https://devforum.roblox.com/t/update-3-nickibreekis-fps-template-overhauled/3037501",
+        "thumbnail": "https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/optimized/5X/4/e/c/a/4eca7e1ad5a4692f300a77e6e04d32ef18950d62_2_517x270.jpeg"
+      },
+      {
+        "title": "UNDERLINE MAP BUILDER KIT",
+        "description": "UNDERLINE COMMUNITY MAP BUILDER KIT FOR MAKING MAP FOR UNDERLINE",
+        "tags": ["Asset", "Template"],
+        "directTo": "CREATE.ROBLOX",
+        "link": "https://create.roblox.com/store/asset/79450062689038/UNDERLINE-MAP-KIT",
+        "thumbnail": "https://cdn.discordapp.com/attachments/945047920485474367/1345640461636997204/image.png?ex=67c548d6&is=67c3f756&hm=3c11c9e385222ddad2123c9bee9ef79170c73f47d164f350a0740084b9a48117&"
+      }
+    ]
+  }
