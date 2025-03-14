@@ -1,29 +1,23 @@
 {
     "title": "UNDERLINE (WIP)",
     "author": "NICKIBREEKI / PLATFORMCOLLAPSE",
-    "description": "UNDERLINE is a high-intensity tactical shooter built from the ground up for fast, responsive, and immersive gunplay. Inspired by <font color='#FFC000'><a href='https://www.roblox.com/games/10469988463/BOMBLINE-Alpha'><b>BOMBLINE</b> by NEVERDIE INTERACTIVE</b></a></font> and the 2010 ROBLOX era style, as well as the grounded, modern combat of <font color='#ffffff'><b>Call of Duty: Modern Warfare (2019)</b></font>. The game aims to deliver a cinematic-quality experience with a retro ROBLOX aesthetic.<br>Built on <b>catframework</b>, the game delivers smooth movement, crisp gunplay, and intense team-based action.",
+    "description": "UNDERLINE is a high-intensity tactical shooter built from the ground up for fast, responsive, and immersive gunplay. Inspired by <font color='#FFC000'><a href='https://www.roblox.com/games/10469988463/BOMBLINE-Alpha'><b>BOMBLINE</b> by NEVERDIE INTERACTIVE</b></a></font> and the 2010 ROBLOX era style, as well as the grounded, modern combat of <font color='#ffffff'><b>Call of Duty: Modern Warfare (2019)</b></font>.<br><br>The game aims to deliver a cinematic-quality experience with a retro ROBLOX aesthetic.<br>Built on <b>catframework</b>, the game delivers smooth movement, crisp gunplay, and intense team-based action.",
     "background": {
         "image": "https://us-east-1.tixte.net/uploads/the_maw.is-from.space/UDL.png",
         "overlay": "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))"
     },
     "buttons": [
         {
-            "name": "EXPERIENCE NOW!",
-            "color": "#1a472a",
-            "icon": "<svg viewBox='0 0 24 24'><path d='M8 5v14l11-7z'/></svg>",
-            "redirectLink": "#play"
-        },
-        {
             "name": "JOIN COMMUNITY",
             "color": "#5865F2",
             "icon": "<svg viewBox='0 0 24 24'><path d='M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z'/></svg>",
-            "redirectLink": "https://discord.gg"
+            "redirectLink": "https://discord.gg/D6bC9Gnps6"
         },
         {
             "name": "GET COMMUNITY MAP KIT",
             "color": "#2a6847",
-            "icon": "<svg viewBox='0 0 24 24'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>",
-            "redirectLink": "https://google.com"
+            "icon": "<svg role='img' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><title>Roblox Studio</title><path d='M 13.936 15.356 L 1.826 12.112 L 0 18.93 L 18.928 24 L 21.608 14.01 L 14.79 12.18 L 13.936 15.356 Z M 5.072 0 L 2.394 9.992 L 9.21 11.822 L 10.064 8.644 L 22.174 11.89 L 24 5.072 L 5.072 0 Z'/></svg>",
+            "redirectLink": "https://create.roblox.com/store/asset/79450062689038/UNDERLINE-MAP-KIT"
         }
     ]
 }
