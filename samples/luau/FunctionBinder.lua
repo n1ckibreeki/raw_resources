@@ -1,3 +1,4 @@
+-- // nickibreeki's FunctionBinder For Game Development
 local Types = ...
 local FuncBinderTypes = Types.FunctionBinder
 
