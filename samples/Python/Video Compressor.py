@@ -946,7 +946,7 @@ class VideoCompressorApp:
                 if self.settings.get("copy_path", True):
 
                     pyperclip.copy(output_path)
-                    message += "  📋 Path copied."
+                    message += "Path copied."
 
                 if self.settings.get("open_folder", False):
 
