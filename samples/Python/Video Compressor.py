@@ -4,6 +4,8 @@
 ## BECAUSE I GOT NO IDEA WHY I DID THIS, EASY TO USE?
 ##
 ## I ALSO INCLUDED AUTO-INSTALLATION IN-CASE YOU GOT NO IDEA HOW TO USE OR INSTALL PACKAGE MANUALLY
+## [Editted]: I found the updated version somewhere lol in my SSD, free to use, mostly just make it prettier format because old one a bit messy
+##          incase you want to learn from my code
 
 import os
 import sys
@@ -38,20 +40,21 @@ except ImportError:
     import pyperclip
 
 
+## LOOKING FOR "video_compressor_settings.json" if it does exist, If it exist it will pull the settings value from the file instead of use default settings
 SETTINGS_PATH = os.path.join(
     os.path.expanduser("~"),
     ".video_compressor_settings.json"
 )
 
 DEFAULT_SETTINGS = {
-    "audio_bitrate":     128,
-    "cpu_preset":        "fast",
-    "min_video_bps":     100000,
-    "copy_path":         False,
-    "open_folder":       True,
+    "audio_bitrate": 128,
+    "cpu_preset": "fast",
+    "min_video_bps": 100000,
+    "copy_path": False,
+    "open_folder": True,
     "preferred_encoder": "auto",
-    "output_suffix":     "_compressed",
-    "two_pass":          False,
+    "output_suffix": "_compressed",
+    "two_pass": False,
 }
 
 
@@ -77,8 +80,8 @@ def save_settings(data):
 def detect_gpu_encoder():
     encoder_tests = [
         ("h264_nvenc", "NVIDIA NVENC"),
-        ("h264_amf",   "AMD AMF"),
-        ("h264_qsv",   "Intel QSV"),
+        ("h264_amf", "AMD AMF"),
+        ("h264_qsv", "Intel QSV"),
     ]
 
     for encoder, label in encoder_tests:
@@ -95,7 +98,7 @@ def detect_gpu_encoder():
                     "-"
                 ],
                 capture_output = True,
-                text           = True
+                text = True
             )
 
             if result.returncode == 0:
@@ -120,7 +123,7 @@ def get_video_duration(path):
             path
         ],
         capture_output = True,
-        text           = True
+        text = True
     )
 
     return float(result.stdout.strip())
@@ -141,7 +144,7 @@ class SettingsWindow(tk.Toplevel):
         self.grab_set()
         self.transient(parent)
 
-        self._s       = dict(settings)
+        self._s = dict(settings)
         self._on_save = on_save
 
         self._build_ui()
@@ -158,17 +161,17 @@ class SettingsWindow(tk.Toplevel):
     def _build_ui(self):
         ttk.Label(
             self,
-            text  = "Settings",
-            font  = ("Segoe UI", 13, "bold")
+            text = "Settings",
+            font = ("Segoe UI", 13, "bold")
         ).pack(
             pady = (18, 10)
         )
 
         frame = ttk.Frame(self)
         frame.pack(
-            fill  = "x",
-            padx  = 28,
-            pady  = 4
+            fill = "x",
+            padx = 28,
+            pady = 4
         )
 
         frame.columnconfigure(1, weight = 1)
@@ -178,14 +181,14 @@ class SettingsWindow(tk.Toplevel):
         def row(row_index, label_text, widget_function):
             ttk.Label(
                 frame,
-                text   = label_text,
-                width  = LABEL_WIDTH,
+                text = label_text,
+                width = LABEL_WIDTH,
                 anchor = "w"
             ).grid(
-                row     = row_index,
-                column  = 0,
-                sticky  = "w",
-                pady    = 7
+                row = row_index,
+                column = 0,
+                sticky = "w",
+                pady = 7
             )
             widget_function(row_index)
 
@@ -197,11 +200,11 @@ class SettingsWindow(tk.Toplevel):
             lambda r: ttk.Combobox(
                 frame,
                 textvariable = self._enc,
-                values       = self.ENCODERS,
-                state        = "readonly",
-                width        = 18
+                values = self.ENCODERS,
+                state = "readonly",
+                width = 18
             ).grid(
-                row    = r,
+                row = r,
                 column = 1,
                 sticky = "w"
             )
@@ -215,11 +218,11 @@ class SettingsWindow(tk.Toplevel):
             lambda r: ttk.Combobox(
                 frame,
                 textvariable = self._preset,
-                values       = self.PRESETS,
-                state        = "readonly",
-                width        = 18
+                values = self.PRESETS,
+                state = "readonly",
+                width = 18
             ).grid(
-                row    = r,
+                row = r,
                 column = 1,
                 sticky = "w"
             )
@@ -237,12 +240,12 @@ class SettingsWindow(tk.Toplevel):
             "Audio Bitrate (kbps)",
             lambda r: ttk.Entry(
                 frame,
-                textvariable     = self._audio,
-                width            = 8,
-                validate         = "key",
-                validatecommand  = number_validation
+                textvariable = self._audio,
+                width = 8,
+                validate = "key",
+                validatecommand = number_validation
             ).grid(
-                row    = r,
+                row = r,
                 column = 1,
                 sticky = "w"
             )
@@ -256,9 +259,9 @@ class SettingsWindow(tk.Toplevel):
             lambda r: ttk.Entry(
                 frame,
                 textvariable = self._suffix,
-                width        = 18
+                width = 18
             ).grid(
-                row    = r,
+                row = r,
                 column = 1,
                 sticky = "w"
             )
@@ -268,42 +271,42 @@ class SettingsWindow(tk.Toplevel):
 
         ttk.Checkbutton(
             frame,
-            text     = "Two-Pass Encoding  (slower, more accurate size)",
+            text = "Two-Pass Encoding  (slower, more accurate size)",
             variable = self._twopass
         ).grid(
-            row        = 4,
-            column     = 0,
+            row = 4,
+            column = 0,
             columnspan = 2,
-            sticky     = "w",
-            pady       = 7
+            sticky = "w",
+            pady = 7
         )
 
         self._copy = tk.BooleanVar(value = self._s["copy_path"])
 
         ttk.Checkbutton(
             frame,
-            text     = "Copy output path to clipboard when done",
+            text = "Copy output path to clipboard when done",
             variable = self._copy
         ).grid(
-            row        = 5,
-            column     = 0,
+            row = 5,
+            column = 0,
             columnspan = 2,
-            sticky     = "w",
-            pady       = 4
+            sticky = "w",
+            pady = 4
         )
 
         self._open = tk.BooleanVar(value = self._s["open_folder"])
 
         ttk.Checkbutton(
             frame,
-            text     = "Open output folder when done",
+            text = "Open output folder when done",
             variable = self._open
         ).grid(
-            row        = 6,
-            column     = 0,
+            row = 6,
+            column = 0,
             columnspan = 2,
-            sticky     = "w",
-            pady       = 4
+            sticky = "w",
+            pady = 4
         )
 
         ttk.Separator(
@@ -322,23 +325,23 @@ class SettingsWindow(tk.Toplevel):
 
         ttk.Button(
             button_row,
-            text    = "Cancel",
-            width   = 10,
+            text = "Cancel",
+            width = 10,
             command = self.destroy
         ).pack(
-            side  = "left",
-            padx  = 6
+            side = "left",
+            padx = 6
         )
 
         ttk.Button(
             button_row,
-            text    = "Save",
-            width   = 10,
-            style   = "Accent.TButton",
+            text = "Save",
+            width = 10,
+            style = "Accent.TButton",
             command = self._save
         ).pack(
-            side  = "left",
-            padx  = 6
+            side = "left",
+            padx = 6
         )
 
     def _save(self):
@@ -352,12 +355,12 @@ class SettingsWindow(tk.Toplevel):
         self._s.update(
             {
                 "preferred_encoder": self._enc.get(),
-                "cpu_preset":        self._preset.get(),
-                "audio_bitrate":     int(self._audio.get()),
-                "output_suffix":     self._suffix.get(),
-                "two_pass":          self._twopass.get(),
-                "copy_path":         self._copy.get(),
-                "open_folder":       self._open.get(),
+                "cpu_preset": self._preset.get(),
+                "audio_bitrate": int(self._audio.get()),
+                "output_suffix": self._suffix.get(),
+                "two_pass": self._twopass.get(),
+                "copy_path": self._copy.get(),
+                "open_folder": self._open.get(),
             }
         )
 
@@ -371,18 +374,18 @@ class SettingsWindow(tk.Toplevel):
 # THIS IS MAIN PROGRAM
 class VideoCompressorApp:
     def __init__(self, root):
-        self.root     = root
+        self.root = root
         self.settings = load_settings()
 
         self.root.title("Video Compressor")
         self.root.resizable(False, False)
         self.root.geometry("620x320")
 
-        self._process     = None
-        self._thread      = None
+        self._process = None
+        self._thread = None
         self._cancel_flag = False
-        self._duration    = 0.0
-        self._encoder     = "libx264"
+        self._duration = 0.0
+        self._encoder = "libx264"
 
         sv_ttk.set_theme("dark")
 
@@ -407,8 +410,8 @@ class VideoCompressorApp:
 
         ttk.Button(
             top,
-            text    = "Settings",
-            width   = 12,
+            text = "Settings",
+            width = 12,
             command = self._open_settings
         ).pack(
             side = "right"
@@ -421,11 +424,11 @@ class VideoCompressorApp:
         ttk.Label(
             self.root,
             textvariable = self.gpu_var,
-            font         = ("Segoe UI", 9),
-            foreground   = "#888"
+            font = ("Segoe UI", 9),
+            foreground = "#888"
         ).pack(
             anchor = "w",
-            padx   = 20
+            padx = 20
         )
 
         ttk.Separator(
@@ -451,14 +454,14 @@ class VideoCompressorApp:
 
         ttk.Label(
             frame,
-            text   = "Target File",
-            width  = LABEL_WIDTH,
+            text = "Target File",
+            width = LABEL_WIDTH,
             anchor = "w"
         ).grid(
-            row   = 0,
-            column= 0,
-            sticky= "w",
-            pady  = 7
+            row = 0,
+            column = 0,
+            sticky = "w",
+            pady = 7
         )
 
         self.input_var = tk.StringVar()
@@ -467,19 +470,19 @@ class VideoCompressorApp:
             frame,
             textvariable = self.input_var
         ).grid(
-            row    = 0,
+            row = 0,
             column = 1,
             sticky = "ew",
-            padx   = (0, 6)
+            padx = (0, 6)
         )
 
         ttk.Button(
             frame,
-            text    = "Browse..",
-            width   = BUTTON_WIDTH,
+            text = "Browse..",
+            width = BUTTON_WIDTH,
             command = self._browse_input
         ).grid(
-            row    = 0,
+            row = 0,
             column = 2,
             sticky = "ew"
         )
@@ -487,14 +490,14 @@ class VideoCompressorApp:
         # Output directory
         ttk.Label(
             frame,
-            text   = "Output Directory",
-            width  = LABEL_WIDTH,
+            text = "Output Directory",
+            width = LABEL_WIDTH,
             anchor = "w"
         ).grid(
-            row    = 1,
+            row = 1,
             column = 0,
             sticky = "w",
-            pady   = 7
+            pady = 7
         )
 
         self.output_var = tk.StringVar(
@@ -505,41 +508,41 @@ class VideoCompressorApp:
             frame,
             textvariable = self.output_var
         ).grid(
-            row    = 1,
+            row = 1,
             column = 1,
             sticky = "ew",
-            padx   = (0, 6)
+            padx = (0, 6)
         )
 
         ttk.Button(
             frame,
-            text    = "Browse..",
-            width   = BUTTON_WIDTH,
+            text = "Browse..",
+            width = BUTTON_WIDTH,
             command = self._browse_output
         ).grid(
-            row    = 1,
+            row = 1,
             column = 2,
             sticky = "ew"
         )
 
         ttk.Label(
             frame,
-            text   = "Target Size (MB)",
-            width  = LABEL_WIDTH,
+            text = "Target Size (MB)",
+            width = LABEL_WIDTH,
             anchor = "w"
         ).grid(
-            row   = 2,
-            column= 0,
-            sticky= "w",
-            pady  = 7
+            row = 2,
+            column = 0,
+            sticky = "w",
+            pady = 7
         )
 
         size_row = ttk.Frame(frame)
         size_row.grid(
-            row        = 2,
-            column     = 1,
+            row = 2,
+            column = 1,
             columnspan = 2,
-            sticky     = "ew"
+            sticky = "ew"
         )
 
         size_row.columnconfigure(1, weight = 1)
@@ -553,26 +556,26 @@ class VideoCompressorApp:
 
         ttk.Entry(
             size_row,
-            textvariable    = self.size_var,
-            width           = 8,
-            validate        = "key",
+            textvariable = self.size_var,
+            width = 8,
+            validate = "key",
             validatecommand = number_validation
         ).grid(
-            row    = 0,
+            row = 0,
             column = 0,
             sticky = "w",
-            padx   = (0, 10)
+            padx = (0, 10)
         )
 
         self.start_btn = ttk.Button(
             size_row,
-            text    = "Start Compression",
-            style   = "Accent.TButton",
+            text = "Start Compression",
+            style = "Accent.TButton",
             command = self._toggle_compression
         )
 
         self.start_btn.grid(
-            row    = 0,
+            row = 0,
             column = 1,
             sticky = "ew"
         )
@@ -600,9 +603,9 @@ class VideoCompressorApp:
         ttk.Progressbar(
             progress_frame,
             variable = self.progress_var,
-            maximum  = 100
+            maximum = 100
         ).grid(
-            row    = 0,
+            row = 0,
             column = 0,
             sticky = "ew"
         )
@@ -612,13 +615,13 @@ class VideoCompressorApp:
         ttk.Label(
             progress_frame,
             textvariable = self.pct_var,
-            font         = ("Segoe UI", 9),
-            width        = 6,
-            anchor       = "e"
+            font = ("Segoe UI", 9),
+            width = 6,
+            anchor = "e"
         ).grid(
-            row    = 0,
+            row = 0,
             column = 1,
-            padx   = (8, 0)
+            padx = (8, 0)
         )
 
         self.status_var = tk.StringVar(value = "Ready.")
@@ -626,14 +629,14 @@ class VideoCompressorApp:
         ttk.Label(
             self.root,
             textvariable = self.status_var,
-            font         = ("Segoe UI", 9),
-            foreground   = "#aaa",
-            wraplength   = 580,
-            justify      = "left"
+            font = ("Segoe UI", 9),
+            foreground = "#aaa",
+            wraplength = 580,
+            justify = "left"
         ).pack(
             anchor = "w",
-            padx   = 20,
-            pady   = (8, 14)
+            padx = 20,
+            pady = (8, 14)
         )
 
     def _detect_encoder_async(self):
@@ -655,7 +658,7 @@ class VideoCompressorApp:
                             "-"
                         ],
                         capture_output = True,
-                        text           = True
+                        text = True
                     )
 
                     if result.returncode == 0:
@@ -701,7 +704,7 @@ class VideoCompressorApp:
 
     def _browse_input(self):
         path = filedialog.askopenfilename(
-            title    = "Select Video",
+            title = "Select Video",
             filetypes = [
                 (
                     "Video files",
@@ -773,7 +776,7 @@ class VideoCompressorApp:
 
         self._thread = threading.Thread(
             target = self._compress_worker,
-            args   = (video_path, output_path, float(size_str)),
+            args = (video_path, output_path, float(size_str)),
             daemon = True
         )
 
@@ -869,8 +872,8 @@ class VideoCompressorApp:
                     cmd,
                     stdout = subprocess.PIPE,
                     stderr = subprocess.STDOUT,
-                    text   = True,
-                    bufsize= 1
+                    text = True,
+                    bufsize = 1
                 )
 
                 for line in self._process.stdout:
